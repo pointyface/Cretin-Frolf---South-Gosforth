@@ -1,0 +1,658 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>South Gosforth - Match play</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="theme.css" rel="stylesheet">
+
+        <style type="text/css">
+
+body {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+    background-color: #66FF99;
+}
+
+table {
+width: 100%;
+border: 1px solid #66FF99;
+}
+
+td {
+    width: 50px;
+    background-color:#66FF99;
+    border: 1px solid #66FF99;
+    text-align:center;
+}
+
+th {
+    width: 50px;
+    background-color:#66FF99;
+    border: 1px solid #66FF99;
+    text-align: center;
+}
+
+.wintable {
+border: none;
+width: 90%;
+margin-left:5%;
+margin-right:5%;
+}
+
+.inpwid {
+    width: 40px;
+    text-align: center;
+    background-color:#66FF99;
+}
+
+.p1totscore {
+    width: 25%;
+    text-align: center;
+    background-color:  #0066FF;
+    font-size: 40px;
+}
+
+.p2totscore {
+    width: 25%;
+    text-align: center;
+    background-color: #FF9933;
+    font-size: 40px;
+}
+
+</style>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="js/ie-emulation-modes-warning.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+<img src="img/CFlogoMP.png" style="width:100%">
+<br>
+<br>
+  <div>
+<p style="float:left; margin-right:5px;">Cretin A =</p>
+<select id="player1" onchange="Pl1name()" style:"margin-top:0px; float:left; margin-left:10px;">
+ <option value="99" selected="selected">Select</option>
+  <option value="0">Beast</option>
+  <option value="1">Davies</option>
+  <option value="2">d.I.G.</option>
+  <option value="3">Fin</option>
+  <option value="4">Fish</option>
+  <option value="5">Gary</option>
+  <option value="6">Hodge</option>
+  <option value="7">John</option>
+  <option value="8">Keith</option>
+  <option value="9">Nichols</option>
+  <option value="10">Pearce</option>
+  <option value="11">Skippa</option>
+  <option value="12">Spoon</option>
+  <option value="13">Truck</option>
+</select>
+</div>
+<br>
+  <div>
+<p style="float:left; margin-right:5px;">Cretin B =</p>
+<select id="player2" onchange="Pl2name()" style:"margin-top:0px; float:left; margin-left:10px;">
+<option value="99" selected="selected">Select</option>
+  <option value="0">Beast</option>
+  <option value="1">Davies</option>
+  <option value="2">d.I.G.</option>
+  <option value="3">Fin</option>
+  <option value="4">Fish</option>
+  <option value="5">Gary</option>
+  <option value="6">Hodge</option>
+  <option value="7">John</option>
+  <option value="8">Keith</option>
+  <option value="9">Nichols</option>
+  <option value="10">Pearce</option>
+  <option value="11">Skippa</option>
+  <option value="12">Spoon</option>
+  <option value="13">Truck</option>
+</select>
+
+<br>
+<br>
+   <table class="sortable" id="tableID" style="align:center;">
+    <tr>
+        <th data-field="Hole" align="center">Hole</th>
+            <th id="name1" data-field="Player1" align="center">Player1</th>
+            <th id="name2" data-field="Player2" align="center">Player2</th>
+            <th data-field="Winner" align="center">Winner</th>
+     
+    </tr>
+    <tr>
+        <td>Hole 1</td>
+        <td class="input"><input type="number" id="h1p1-input" value=0 onChange="h1()" class="inpwid"></td>
+        <td class="input"><input type="number" id="h1p2-input" value=0 onChange="h1()" class="inpwid" ></td>
+        <td id="h1winner" ></td>
+
+</tr>
+    <tr>
+        <td>Hole 2</td>
+        <td class="input"><input type="number" id="h2p1-input" value=0 onChange="h2()" class="inpwid"></td>
+        <td class="input"><input type="number" id="h2p2-input" value=0 onChange="h2()" class="inpwid"></td>
+        <td id="h2winner"  ></td>
+
+</tr>
+    <tr>
+        <td>Hole 3</td>
+        <td class="input"><input type="number" id="h3p1-input" value=0 onChange="h3()" class="inpwid"></td>
+        <td class="input"><input type="number" id="h3p2-input" value=0 onChange="h3()" class="inpwid"></td>
+        <td id="h3winner"  ></td>
+
+</tr>
+    <tr>
+        <td>Hole 4</td>
+        <td class="input"><input type="number" id="h4p1-input" value=0 onChange="h4()" class="inpwid"></td>
+        <td class="input"><input type="number" id="h4p2-input" value=0 onChange="h4()" class="inpwid"></td>
+        <td id="h4winner"  ></td>
+
+</tr>
+    <tr>
+        <td>Hole 5</td>
+        <td class="input"><input type="number" id="h5p1-input" value=0 onChange="h5()" class="inpwid"></td>
+        <td class="input"><input type="number" id="h5p2-input" value=0 onChange="h5()" class="inpwid"></td>
+        <td id="h5winner"  ></td>
+
+</tr>
+    <tr>
+        <td>Hole 6</td>
+        <td class="input"><input type="number" id="h6p1-input" value=0 onChange="h6()" class="inpwid"></td>
+        <td class="input"><input type="number" id="h6p2-input" value=0 onChange="h6()" class="inpwid"></td>
+        <td id="h6winner"  ></td>
+
+</tr>
+    <tr>
+        <td>Hole 7</td>
+        <td class="input"><input type="number" id="h7p1-input" value=0 onChange="h7()" class="inpwid"></td>
+        <td class="input"><input type="number" id="h7p2-input" value=0 onChange="h7()" class="inpwid"></td>
+        <td id="h7winner"  ></td>
+</tr>
+    <tr>
+        <td>Hole 8</td>
+        <td class="input"><input type="number" id="h8p1-input" value=0 onChange="h8()" class="inpwid"></td>
+        <td class="input"><input type="number" id="h8p2-input" value=0 onChange="h8()" class="inpwid"></td>
+        <td id="h8winner"  ></td>
+
+</tr>
+    <tr>
+        <td>Hole 9</td>
+        <td class="input"><input type="number" id="h9p1-input" value=0 onChange="h9()" class="inpwid"></td>
+        <td class="input"><input type="number" id="h9p2-input" value=0 onChange="h9()" class="inpwid"></td>
+        <td id="h9winner"  ></td>
+
+</tr>
+</table>
+<br>
+   <table class="wintable" style="align:center;">
+    <tr>
+        <td id="photo1"><img src="img/Unknown.jpg" height="80" width="80"></td>
+        <td id="p1totscore" class="p1totscore" text-align="center"><b>0</b></td>
+        <td id="p2totscore" class="p2totscore" text-align="center"><b>0</b></td>
+        <td id="photo2"><img src="img/Unknown.jpg" height="80" width="80"></td>
+
+</tr>
+
+<script src="http://wbpl.sdrew.net/Frolf/Data/data.js"></script>
+<script>
+var handicap=[
+["Beast",10],
+["Davies",6],
+["d.I.G.",9],
+["Fin",1],
+["Fish",3],
+["Gary",7],
+["Hodge",0],
+["John",2],
+["Keith",5],
+["Nichols",10],
+["Pearce",2],
+["Skippa",6],
+["Spoon",1],
+["Truck",4]
+];
+
+
+function handicpl1(alpha) {
+
+    holes.sort(function (a, b) {
+    var x=a[0];
+    var y=b[0];
+    return y-x;
+});
+
+plh1=[];
+
+plh1=holes.slice();
+
+h=handicap[alpha][1];
+
+if (h<=9) {
+i=h;
+j=0;
+}
+else {
+i=9;
+j=-(h-18);
+};
+
+for(var a = 0, len = plh1.length; a < len; a++) {
+
+if (a<i) {
+plh1[a].push(1);
+}
+else {
+plh1[a].push(0);
+};
+if (a<j) {
+plh1[a].push(1);
+}
+else {
+plh1[a].push(0);
+};
+};
+
+holes.sort(function (a, b) {
+    var x=a[1];
+    var y=b[1];
+    return x-y;
+});
+};
+
+function handicpl2(alpha) {
+
+    holes.sort(function (a, b) {
+    var x=a[0];
+    var y=b[0];
+    return y-x;
+});
+
+plh2=[];
+
+plh2=holes.slice();
+
+h=handicap[alpha][1];
+
+if (h<=9) {
+i=h;
+j=0;
+}
+else {
+i=9;
+j=h-9;
+};
+
+for(var a = 0, len = plh2.length; a < len; a++) {
+
+if (a<i) {
+plh2[a].push(1);
+}
+else {
+plh2[a].push(0);
+};
+if (a<j) {
+plh2[a].push(1);
+}
+else {
+plh2[a].push(0);
+};
+};
+
+holes.sort(function (a, b) {
+    var x=a[1];
+    var y=b[1];
+    return x-y;
+}
+);
+};
+
+function Pl1name(Player1) {
+Plyr1=handicap[player1.options[player1.selectedIndex].value][0];
+document.getElementById('name1').innerHTML = Plyr1;
+handicpl1(player1.options[player1.selectedIndex].value);
+imgp1html='<img src="img/'+Plyr1+'.jpg" height="80" width="80">';
+photo1change(imgp1html);
+};
+function Pl2name(Player2) {
+Plyr2=handicap[player2.options[player2.selectedIndex].value][0];
+document.getElementById('name2').innerHTML = Plyr2;
+handicpl2(player2.options[player2.selectedIndex].value);
+imgp2html='<img src="img/'+Plyr2+'.jpg" height="80" width="80">';
+photo2change(imgp2html);
+};
+function h1winnerchange(h1winner) {
+document.getElementById('h1winner').innerHTML = h1winner;
+};
+function h2winnerchange(h2winner) {
+document.getElementById('h2winner').innerHTML = h2winner;
+};
+function h3winnerchange(h3winner) {
+document.getElementById('h3winner').innerHTML = h3winner;
+};
+function h4winnerchange(h4winner) {
+document.getElementById('h4winner').innerHTML = h4winner;
+};
+function h5winnerchange(h5winner) {
+document.getElementById('h5winner').innerHTML = h5winner;
+};
+function h6winnerchange(h6winner) {
+document.getElementById('h6winner').innerHTML = h6winner;
+};
+function h7winnerchange(h7winner) {
+document.getElementById('h7winner').innerHTML = h7winner;
+};
+function h8winnerchange(h8winner) {
+document.getElementById('h8winner').innerHTML = h8winner;
+};
+function h9winnerchange(h9winner) {
+document.getElementById('h9winner').innerHTML = h9winner;
+};
+function p1totscorechange(p1totscore) {
+document.getElementById('p1totscore').innerHTML = p1totscore;
+};
+function p2totscorechange(p2totscore) {
+document.getElementById('p2totscore').innerHTML = p2totscore;
+};
+function photo1change(photo1) {
+document.getElementById('photo1').innerHTML = photo1;
+};
+function photo2change(photo2) {
+document.getElementById('photo2').innerHTML = photo2;
+};
+
+var p1h1score=0;
+var p2h1score=0;
+var p1h2score=0;
+var p2h2score=0;
+var p1h3score=0;
+var p2h3score=0;
+var p1h4score=0;
+var p2h4score=0;
+var p1h5score=0;
+var p2h5score=0;
+var p1h6score=0;
+var p2h6score=0;
+var p1h7score=0;
+var p2h7score=0;
+var p1h8score=0;
+var p2h8score=0;
+var p1h9score=0;
+var p2h9score=0;
+var p1total=0;
+var p2total=0;
+
+function winner() {
+var p1total=p1h1score+p1h2score+p1h3score+p1h4score+p1h5score+p1h6score+p1h7score+p1h8score+p1h9score;
+var p2total=p2h1score+p2h2score+p2h3score+p2h4score+p2h5score+p2h6score+p2h7score+p2h8score+p2h9score;
+
+if (p1total===p2total) {
+    overallwin="Tie game"
+}
+else if (p1total>p2total) {
+    overallwin=handicap[player1.options[player1.selectedIndex].value][0];
+}
+else if (p2total>p1total) {
+    overallwin=handicap[player2.options[player2.selectedIndex].value][0];
+};
+
+p1totscorechange("<b>"+p1total+"</b>");
+p2totscorechange("<b>"+p2total+"</b>");
+};
+
+function h1() {
+pl1h1 = document.getElementById("h1p1-input").value-holes[0][2]-holes[0][3];
+pl2h1 = document.getElementById("h1p2-input").value-holes[0][4]-holes[0][5];
+
+if (pl1h1===pl2h1) {
+    var h1winner="Split";
+     p1h1score=0.5;
+     p2h1score=0.5;
+}
+else if (pl1h1<pl2h1) {
+    var h1winner=handicap[player1.options[player1.selectedIndex].value][0];
+    p1h1score=1;
+    p2h1score=0;
+}
+else if (pl1h1>pl2h1) {
+    var h1winner=handicap[player2.options[player2.selectedIndex].value][0];
+    p2h1score=1; 
+    p1h1score=0;   
+};
+
+h1winnerchange(h1winner);
+
+winner();
+};
+
+function h2(){
+
+var pl1h2 = document.getElementById("h2p1-input").value-holes[1][2]-holes[1][3];
+var pl2h2 = document.getElementById("h2p2-input").value-holes[1][4]-holes[1][5];
+
+if (pl1h2===pl2h2) {
+    var h2winner="Split";
+    p1h2score=0.5;
+    p2h2score=0.5;    
+}
+else if (pl1h2<pl2h2) {
+    var h2winner=handicap[player1.options[player1.selectedIndex].value][0];
+    p1h2score=1;
+    p2h2score=0;
+}
+else if (pl1h2>pl2h2) {
+    var h2winner=handicap[player2.options[player2.selectedIndex].value][0];
+    p2h2score=1;  
+    p1h2score=0; 
+};
+
+h2winnerchange(h2winner);
+
+winner();
+};
+function h3(){
+var pl1h3 = document.getElementById("h3p1-input").value-holes[2][2]-holes[2][3];
+var pl2h3 = document.getElementById("h3p2-input").value-holes[2][4]-holes[2][5];
+
+if (pl1h3===pl2h3) {
+    var h3winner="Split";
+    p1h3score=0.5;
+    p2h3score=0.5;
+}
+else if (pl1h3<pl2h3) {
+    var h3winner=handicap[player1.options[player1.selectedIndex].value][0];
+    p1h3score=1;  
+    p2h3score=0; 
+}
+else if (pl1h3>pl2h3) {
+    var h3winner=handicap[player2.options[player2.selectedIndex].value][0];
+    p2h3score=1; 
+    p1h3score=0;   
+};
+
+h3winnerchange(h3winner);
+
+winner();
+};
+
+function h4(){
+var pl1h4 = document.getElementById("h4p1-input").value-holes[3][2]-holes[3][3];
+var pl2h4 = document.getElementById("h4p2-input").value-holes[3][4]-holes[3][5];
+
+if (pl1h4===pl2h4) {
+    var h4winner="Split";
+    p1h4score=0.5;
+    p2h4score=0.5;
+}
+else if (pl1h4<pl2h4) {
+    var h4winner=handicap[player1.options[player1.selectedIndex].value][0];
+    p1h4score=1;
+    p2h4score=0;
+}
+else if (pl1h4>pl2h4) {
+    var h4winner=handicap[player2.options[player2.selectedIndex].value][0];
+    p2h4score=1;
+    p1h4score=0;
+};
+
+h4winnerchange(h4winner);
+
+winner();
+};
+function h5(){
+var pl1h5 = document.getElementById("h5p1-input").value-holes[4][2]-holes[4][3];
+var pl2h5 = document.getElementById("h5p2-input").value-holes[4][4]-holes[4][5];
+
+if (pl1h5===pl2h5) {
+    var h5winner="Split";
+    p1h5score=0.5;
+    p2h5score=0.5;    
+}
+else if (pl1h5<pl2h5) {
+    var h5winner=handicap[player1.options[player1.selectedIndex].value][0];
+    p1h5score=1;
+    p2h5score=0;
+}
+else if (pl1h5>pl2h5) {
+    var h5winner=handicap[player2.options[player2.selectedIndex].value][0];
+    p2h5score=1;
+    p1h5score=0;
+};
+
+h5winnerchange(h5winner);
+
+winner();
+};
+function h6(){
+var pl1h6 = document.getElementById("h6p1-input").value-holes[5][2]-holes[5][3];
+var pl2h6 = document.getElementById("h6p2-input").value-holes[5][4]-holes[5][5];
+
+if (pl1h6===pl2h6) {
+    var h6winner="Split";
+    p1h6score=0.5;
+    p2h6score=0.5;
+}
+else if (pl1h6<pl2h6) {
+    var h6winner=handicap[player1.options[player1.selectedIndex].value][0];
+    p1h6score=1;
+    p2h6score=0;
+}
+else if (pl1h6>pl2h6) {
+    var h6winner=handicap[player2.options[player2.selectedIndex].value][0];
+    p2h6score=1;
+    p1h6score=0;
+};
+
+h6winnerchange(h6winner);
+
+winner();
+};
+function h7(){
+var pl1h7 = document.getElementById("h7p1-input").value-holes[6][2]-holes[6][3];
+var pl2h7 = document.getElementById("h7p2-input").value-holes[6][4]-holes[6][5];
+
+if (pl1h7===pl2h7) {
+    var h7winner="Split";
+    p1h7score=0.5;
+    p2h7score=0.5;    
+}
+else if (pl1h7<pl2h7) {
+    var h7winner=handicap[player1.options[player1.selectedIndex].value][0];
+    p1h7score=1;
+    p2h7score=0;
+}
+else if (pl1h7>pl2h7) {
+    var h7winner=handicap[player2.options[player2.selectedIndex].value][0];
+    p2h7score=1;
+    p1h7score=0;
+};
+
+h7winnerchange(h7winner);
+
+winner();
+};
+function h8(){
+var pl1h8 = document.getElementById("h8p1-input").value-holes[7][2]-holes[7][3];
+var pl2h8 = document.getElementById("h8p2-input").value-holes[7][4]-holes[7][5];
+
+if (pl1h8===pl2h8) {
+    var h8winner="Split";
+    p1h8score=0.5;
+    p2h8score=0.5; 
+}
+else if (pl1h8<pl2h8) {
+    var h8winner=handicap[player1.options[player1.selectedIndex].value][0];
+    p1h8score=1;
+    p2h8score=0;
+}
+else if (pl1h8>pl2h8) {
+    var h8winner=handicap[player2.options[player2.selectedIndex].value][0];
+    p2h8score=1;
+    p1h8score=0;
+};
+
+h8winnerchange(h8winner);
+
+winner();
+};
+
+function h9(){
+var pl1h9 = document.getElementById("h9p1-input").value-holes[8][2]-holes[8][3];
+var pl2h9 = document.getElementById("h9p2-input").value-holes[8][4]-holes[8][5];
+
+if (pl1h9===pl2h9) {
+    var h9winner="Split";
+    p1h9score=0.5;
+    p2h9score=0.5; 
+}
+else if (pl1h9<pl2h9) {
+    var h9winner=handicap[player1.options[player1.selectedIndex].value][0];
+    p1h9score=1;
+    p2h9score=0;
+}
+else if (pl1h9>pl2h9) {
+    var h9winner=handicap[player2.options[player2.selectedIndex].value][0];
+    p2h9score=1;
+    p1h9score=0;
+};
+
+h9winnerchange(h9winner);
+
+winner();
+};
+
+</script>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.bulletin.js"></script>
+    <script src="js/bootstrap-table.js"></script>
+    <script src="docs.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
