@@ -89,6 +89,48 @@ margin-right:5%;
   </head>
   <body>
 <img src="img/CFlogoMP.png" style="width:100%">
+<br>
+<br>
+  <div>
+<p style="float:left; margin-right:5px;">Cretin A =</p>
+<select id="player1" onchange="Pl1name()" style:"margin-top:0px; float:left; margin-left:10px;">
+ <option value="99" selected="selected">Select</option>
+  <option value="0">Beast</option>
+  <option value="1">Davies</option>
+  <option value="2">d.I.G.</option>
+  <option value="3">Fin</option>
+  <option value="4">Fish</option>
+  <option value="5">Gary</option>
+  <option value="6">Hodge</option>
+  <option value="7">John</option>
+  <option value="8">Keith</option>
+  <option value="9">Nichols</option>
+  <option value="10">Pearce</option>
+  <option value="11">Skippa</option>
+  <option value="12">Spoon</option>
+  <option value="13">Truck</option>
+</select>
+</div>
+<br>
+  <div>
+<p style="float:left; margin-right:5px;">Cretin B =</p>
+<select id="player2" onchange="Pl2name()" style:"margin-top:0px; float:left; margin-left:10px;">
+<option value="99" selected="selected">Select</option>
+  <option value="0">Beast</option>
+  <option value="1">Davies</option>
+  <option value="2">d.I.G.</option>
+  <option value="3">Fin</option>
+  <option value="4">Fish</option>
+  <option value="5">Gary</option>
+  <option value="6">Hodge</option>
+  <option value="7">John</option>
+  <option value="8">Keith</option>
+  <option value="9">Nichols</option>
+  <option value="10">Pearce</option>
+  <option value="11">Skippa</option>
+  <option value="12">Spoon</option>
+  <option value="13">Truck</option>
+</select>
 
 <br>
 <br>
@@ -406,27 +448,7 @@ var handicap=[
 ["Truck",4]
 ];
 
-var val = sessionStorage.players;
 
-if (val.length==3){
-player1value=val[0];
-player2value=val[2];
-}
-else if (val.length==4){
-if (val[1]=",") {
-player1value=val[0];
-player2value=val[2]+val[3];
-}
-else {
-player1value=val[0]+val[1];
-player2value=val[3];
-}
-}
-else if (val.length==5) {
-player1value=val[0]+val[1];
-player2value=val[3]+val[4];
-
-}
 function handicpl1(alpha) {
 
     holes.sort(function (a, b) {
@@ -521,21 +543,19 @@ holes.sort(function (a, b) {
 };
 
 function Pl1name(Player1) {
-Plyr1=handicap[player1value][0];
+Plyr1=handicap[player1.options[player1.selectedIndex].value][0];
 document.getElementById('name1').innerHTML = Plyr1;
-handicpl1(player1value);
+handicpl1(player1.options[player1.selectedIndex].value);
 imgp1html='<img src="img/'+Plyr1+'.jpg" height="80" width="80">';
 photo1change(imgp1html);
 };
 function Pl2name(Player2) {
-Plyr2=handicap[player2value][0];
+Plyr2=handicap[player2.options[player2.selectedIndex].value][0];
 document.getElementById('name2').innerHTML = Plyr2;
-handicpl2(player2value);
+handicpl2(player2.options[player2.selectedIndex].value);
 imgp2html='<img src="img/'+Plyr2+'.jpg" height="80" width="80">';
 photo2change(imgp2html);
 };
-Pl1name();
-Pl2name();
 function h1winnerchange(h1winner) {
 document.getElementById('h1winner').innerHTML = h1winner;
 };
@@ -605,10 +625,10 @@ if (p1total===p2total) {
     overallwin="Tie game"
 }
 else if (p1total>p2total) {
-    overallwin=handicap[player1value][0];
+    overallwin=handicap[player1.options[player1.selectedIndex].value][0];
 }
 else if (p2total>p1total) {
-    overallwin=handicap[player2value][0];
+    overallwin=handicap[player2.options[player2.selectedIndex].value][0];
 };
 
 p1totscorechange("<b>"+p1total+"</b>");
@@ -883,8 +903,6 @@ $(".input-number").keydown(function (e) {
         }
     });
 </script>
-
-
 
 
     <!-- Bootstrap core JavaScript

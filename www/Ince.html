@@ -24,33 +24,9 @@ img { max-width: 100%; }
 
 body { 
     padding-top: 50px; 
-    background-color:#66FF99;
 }
 
-#footer {
-    width:100%;
-    height:50px;
-    position:absolute;
-    bottom:0;
-    left:0;
-}
 
-#footer {
-    background:#66FF99;;
-    border-top:1px solid #ff4b02;
-    color:#333;
-    text-shadow:1px 1px 0 rgba(255,255,255,0.6);
-    text-align: right;
-}
-
-.wrapper {
-    text-align: center;
-}
-
-.btn {
-    width: 50%;
-    height: 25%;
-}
 </style>
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
@@ -68,37 +44,26 @@ body {
 
     <div class="container theme-showcase" role="main">
 
-      <!-- Main jumbotron for a primary marketing message or call to action -->
-<img src="img/CFLogo.png" style="width:100%">
+<img src="img/Ince.jpg" style="width:100%; margin-top:20%">
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
-<div class="wrapper">
-<a class="btn btn-primary btn-lg" href="SG-MP-PS.html">Match play</a>
 </div>
-<br>
-<br>
-<br>
-<br>
-<div class="wrapper">
-<a class="btn btn-primary btn-lg" href="SG-SP-No.html">Stroke play</a>
-</div>
+<script>
+var r_text = new Array ();
+r_text[0] = "It's facking frisbees or sumfink Bruv";
+r_text[1] = "I'm the facking president Bruv";
+r_text[2] = "Fack off Bruv";
+r_text[3] = "I hate Paul Pince and all he stands for";
+r_text[4] = "Wheres my facking arm?";
+r_text[5] = "Fack sake Bruv, what do ya think you're doing?";
+r_text[6] = "You've got to hold and give Bruv";
 
- <div id="footer">
-  <a href="Ince.html">OPTA</a>
-<br>
-  <a href="Ince.html">Official Pearce Timewasting Activities</a>
-</div> 
-    </div> <!-- /container -->
+var i = Math.floor(7*Math.random());
 
+document.write('<div style="text-align: center;"><h2 style="font-weight: bold;">' + r_text[i] + '</h2></div>');
+</script>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.bulletin.js"></script>
     <script src="js/bootstrap-table.js"></script>

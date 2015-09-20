@@ -1,0 +1,713 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>South Gosforth - Stroke play</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="theme.css" rel="stylesheet">
+
+        <style type="text/css">
+
+body {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+    background-color: #66FF99;
+}
+
+table {
+border: 1px solid #66FF99;
+}
+
+td {
+  width: 150px;
+    background-color:#66FF99;
+    border: 1px solid #66FF99;
+    text-align:center;
+}
+
+th {
+  width: 150px;
+    background-color:#66FF99;
+    border: 1px solid #66FF99;
+    text-align: center;
+}
+
+.wintable {
+border: none;
+width: 90%;
+margin-left:5%;
+margin-right:5%;
+}
+
+.form-control  {
+    width: 150px;
+    text-align: center;
+    background-color:#66FF99;
+}
+
+.p1totscore {
+    width: 25%;
+    text-align: center;
+    background-color:  #0066FF;
+    font-size: 40px;
+}
+
+.p2totscore {
+    width: 25%;
+    text-align: center;
+    background-color: #FF9933;
+    font-size: 40px;
+}
+
+</style>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="js/ie-emulation-modes-warning.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+<img src="img/CFlogoSP.png" style="width:100%">
+
+<br>
+<br>
+ 
+<script src="http://wbpl.sdrew.net/Frolf/Data/data.js"></script>
+<script>
+var handicap=[
+["Beast",10],
+["Davies",6],
+["d.I.G.",9],
+["Fin",1],
+["Fish",3],
+["Gary",7],
+["Hodge",0],
+["John",2],
+["Keith",5],
+["Nichols",10],
+["Pearce",2],
+["Skippa",6],
+["Spoon",1],
+["Truck",4]
+];
+
+var val = sessionStorage.playersp;
+
+var split = val.split(',');
+
+var noplay = split[0];
+
+
+function p1totscorechange(p1totscore) {
+document.getElementById('p1totscore').innerHTML = p1totscore;
+};
+function p2totscorechange(p2totscore) {
+document.getElementById('p2totscore').innerHTML = p2totscore;
+};
+function photo1change(photo1) {
+document.getElementById('photo1').innerHTML = photo1;
+};
+function photo2change(photo2) {
+document.getElementById('photo2').innerHTML = photo2;
+};
+
+function player1() {
+
+player1value=split[1];
+Plyr1=handicap[player1value][0];
+document.getElementById('name1').innerHTML = Plyr1;
+};
+
+function player2() {
+
+player2value=split[2];
+Plyr2=handicap[player2value][0];
+document.getElementById('name2').innerHTML = Plyr2;
+};
+
+function player3() {
+
+player3value=split[3];
+Plyr3=handicap[player3value][0];
+document.getElementById('name3').innerHTML = Plyr3;
+};
+
+function player4() {
+
+player4value=split[4];
+Plyr4=handicap[player4value][0];
+document.getElementById('name4').innerHTML = Plyr4;
+};
+
+function player5() {
+
+player5value=split[5];
+Plyr5=handicap[player5value][0];
+document.getElementById('name5').innerHTML = Plyr5;
+};
+
+function player6() {
+
+player6value=split[6];
+Plyr6handicap[player6value][0];
+document.getElementById('name6').innerHTML = Plyr6;
+
+};
+
+function player7() {
+
+player7value=split[7];
+Plyr7=handicap[player7value][0];
+document.getElementById('name7').innerHTML = Plyr7;
+
+
+};
+
+function player8() {
+
+player8value=split[8];
+Plyr8=handicap[player8value][0];
+document.getElementById('name8').innerHTML = Plyr8;
+};
+
+function player9() {
+
+player9value=split[9];
+Plyr9=handicap[player9value][0];
+document.getElementById('name9').innerHTML = Plyr9;
+};
+
+function player10() {
+
+player10value=split[10];
+Plyr10=handicap[player10value][0];
+document.getElementById('name10').innerHTML = Plyr10;
+};
+
+function player11() {
+
+player11value=split[11];
+Plyr11=handicap[player11value][0];
+document.getElementById('name11').innerHTML = Plyr11;
+};
+
+function player12() {
+
+player12value=split[12];
+Plyr12=handicap[player12value][0];
+document.getElementById('name12').innerHTML = Plyr12;
+};
+
+function player13() {
+
+player13value=split[13];
+Plyr13=handicap[player13value][0];
+document.getElementById('name13').innerHTML = Plyr13;
+};
+
+function player14() {
+
+player14value=split[14];
+Plyr14=handicap[player14value][0];
+document.getElementById('name14').innerHTML = Plyr14;
+};
+
+function player15() {
+
+player15value=split[15];
+Plyr15=handicap[player15value][0];
+document.getElementById('name15').innerHTML = Plyr15;
+};
+
+function player16() {
+
+player16value=split[16];
+Plyr16=handicap[player16value][0];
+document.getElementById('name16').innerHTML = Plyr16;
+};
+
+var i=1;
+var j=1;
+var l=1;
+
+document.write('<table class="sortable" id="tableID" style="align:center;"><tr><th data-field="Hole" align="center">Hole</th>');
+
+while (i<=noplay)  {
+           document.write('<th id="name' +i+ '" data-field="Player' +i+ '" align="center">Player' +i+ '</th>');
+            i++
+     };
+     
+ document.write('</tr>');
+   
+   while (j<=9)  {
+     
+     l=1;
+
+   document.write('<tr><td>Hole '+j+'</td>');
+
+
+
+   while (l<=noplay)  {
+
+        qat=(noplay*j)-(noplay-l);
+
+       document.write('<td><div class="input-group"><span class="input-group-btn"><button type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant[' +qat+ ']"><span class="glyphicon glyphicon-minus"></span></button></span><input type="text" id="h' +j+ 'p' +l+ '-input" name="quant[' +qat+ ']" class="form-control input-number" onChange="winner()" value="0"><span class="input-group-btn"><button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant[' +qat+ ']"><span class="glyphicon glyphicon-plus"></span></button></span></div></td>');
+
+      l++;
+
+    };
+
+    document.write ('</tr>');
+
+j++;
+
+};
+
+document.write('<tr><th align="center"><b>Total</b></th>');
+
+i=1;
+while (i<=noplay)  {
+           document.write('<th id="total' +i+ '" data-field="Total' +i+ '" align="center">0</th>');
+            i++
+     };
+     
+ document.write('</tr>');
+
+ document.write('<tr><th align="center"><b>Total (adj)</b></th>');
+i=1;
+while (i<=noplay)  {
+           document.write('<th id="total' +i+ 'adj" data-field="Totaladj' +i+ '" align="center">0</th>');
+            i++
+     };
+     
+ document.write('</tr>');
+
+document.write ('</table>');
+
+  scores=[];
+  scoresadj =[];
+
+function winner() {
+scores.length=0;
+scoresadj.length=0;
+
+var player1score = parseFloat(document.getElementById("h1p1-input").value)+parseFloat(document.getElementById("h2p1-input").value)+parseFloat(document.getElementById("h3p1-input").value)+parseFloat(document.getElementById("h4p1-input").value)+parseFloat(document.getElementById("h5p1-input").value)+parseFloat(document.getElementById("h6p1-input").value)+parseFloat(document.getElementById("h7p1-input").value)+parseFloat(document.getElementById("h8p1-input").value)+parseFloat(document.getElementById("h9p1-input").value);
+var player1scoreadj = parseFloat(document.getElementById("h1p1-input").value)+parseFloat(document.getElementById("h2p1-input").value)+parseFloat(document.getElementById("h3p1-input").value)+parseFloat(document.getElementById("h4p1-input").value)+parseFloat(document.getElementById("h5p1-input").value)+parseFloat(document.getElementById("h6p1-input").value)+parseFloat(document.getElementById("h7p1-input").value)+parseFloat(document.getElementById("h8p1-input").value)+parseFloat(document.getElementById("h9p1-input").value)-handicap[player1value][1];
+document.getElementById('total1').innerHTML = player1score;
+document.getElementById('total1adj').innerHTML = player1scoreadj;
+scores.push([player1value,player1score]);
+scoresadj.push([player1value,player1scoreadj]);
+if (noplay>1) {
+var player2score = parseFloat(document.getElementById("h1p2-input").value)+parseFloat(document.getElementById("h2p2-input").value)+parseFloat(document.getElementById("h3p2-input").value)+parseFloat(document.getElementById("h4p2-input").value)+parseFloat(document.getElementById("h5p2-input").value)+parseFloat(document.getElementById("h6p2-input").value)+parseFloat(document.getElementById("h7p2-input").value)+parseFloat(document.getElementById("h8p2-input").value)+parseFloat(document.getElementById("h9p2-input").value);
+var player2scoreadj = parseFloat(document.getElementById("h1p2-input").value)+parseFloat(document.getElementById("h2p2-input").value)+parseFloat(document.getElementById("h3p2-input").value)+parseFloat(document.getElementById("h4p2-input").value)+parseFloat(document.getElementById("h5p2-input").value)+parseFloat(document.getElementById("h6p2-input").value)+parseFloat(document.getElementById("h7p2-input").value)+parseFloat(document.getElementById("h8p2-input").value)+parseFloat(document.getElementById("h9p2-input").value)-handicap[player2value][1];
+document.getElementById('total2').innerHTML = player2score;
+document.getElementById('total2adj').innerHTML = player2scoreadj;
+scores.push([player2value,player2score]);
+scoresadj.push([player2value,player2scoreadj]);
+};
+if (noplay>2) {
+var player3score = parseFloat(document.getElementById("h1p3-input").value)+parseFloat(document.getElementById("h2p3-input").value)+parseFloat(document.getElementById("h3p3-input").value)+parseFloat(document.getElementById("h4p3-input").value)+parseFloat(document.getElementById("h5p3-input").value)+parseFloat(document.getElementById("h6p3-input").value)+parseFloat(document.getElementById("h7p3-input").value)+parseFloat(document.getElementById("h8p3-input").value)+parseFloat(document.getElementById("h9p3-input").value);
+var player3scoreadj = parseFloat(document.getElementById("h1p3-input").value)+parseFloat(document.getElementById("h2p3-input").value)+parseFloat(document.getElementById("h3p3-input").value)+parseFloat(document.getElementById("h4p3-input").value)+parseFloat(document.getElementById("h5p3-input").value)+parseFloat(document.getElementById("h6p3-input").value)+parseFloat(document.getElementById("h7p3-input").value)+parseFloat(document.getElementById("h8p3-input").value)+parseFloat(document.getElementById("h9p3-input").value)-handicap[player3value][1];
+document.getElementById('total3').innerHTML = player3score;
+document.getElementById('total3adj').innerHTML = player3scoreadj;
+scores.push([player3value,player3score]);
+scoresadj.push([player3value,player3scoreadj]);
+};
+if (noplay>3) {
+var player4score = parseFloat(document.getElementById("h1p4-input").value)+parseFloat(document.getElementById("h2p4-input").value)+parseFloat(document.getElementById("h3p4-input").value)+parseFloat(document.getElementById("h4p4-input").value)+parseFloat(document.getElementById("h5p4-input").value)+parseFloat(document.getElementById("h6p4-input").value)+parseFloat(document.getElementById("h7p4-input").value)+parseFloat(document.getElementById("h8p4-input").value)+parseFloat(document.getElementById("h9p4-input").value);
+var player4scoreadj = parseFloat(document.getElementById("h1p4-input").value)+parseFloat(document.getElementById("h2p4-input").value)+parseFloat(document.getElementById("h3p4-input").value)+parseFloat(document.getElementById("h4p4-input").value)+parseFloat(document.getElementById("h5p4-input").value)+parseFloat(document.getElementById("h6p4-input").value)+parseFloat(document.getElementById("h7p4-input").value)+parseFloat(document.getElementById("h8p4-input").value)+parseFloat(document.getElementById("h9p4-input").value)-handicap[player4value][1];
+document.getElementById('total4').innerHTML = player4score;
+document.getElementById('total4adj').innerHTML = player4scoreadj;
+scores.push([player4value,player4score]);
+scoresadj.push([player4value,player4scoreadj]);
+};
+if (noplay>4) {
+var player5score = parseFloat(document.getElementById("h1p5-input").value)+parseFloat(document.getElementById("h2p5-input").value)+parseFloat(document.getElementById("h3p5-input").value)+parseFloat(document.getElementById("h4p5-input").value)+parseFloat(document.getElementById("h5p5-input").value)+parseFloat(document.getElementById("h6p5-input").value)+parseFloat(document.getElementById("h7p5-input").value)+parseFloat(document.getElementById("h8p5-input").value)+parseFloat(document.getElementById("h9p5-input").value);
+var player5scoreadj = parseFloat(document.getElementById("h1p5-input").value)+parseFloat(document.getElementById("h2p5-input").value)+parseFloat(document.getElementById("h3p5-input").value)+parseFloat(document.getElementById("h4p5-input").value)+parseFloat(document.getElementById("h5p5-input").value)+parseFloat(document.getElementById("h6p5-input").value)+parseFloat(document.getElementById("h7p5-input").value)+parseFloat(document.getElementById("h8p5-input").value)+parseFloat(document.getElementById("h9p5-input").value)-handicap[player5value][1];
+document.getElementById('total5').innerHTML = player5score;
+document.getElementById('total5adj').innerHTML = player5scoreadj;
+scores.push([player5value,player5score]);
+scoresadj.push([player5value,player5scoreadj]);
+};
+if (noplay>5) {
+var player6score = parseFloat(document.getElementById("h1p6-input").value)+parseFloat(document.getElementById("h2p6-input").value)+parseFloat(document.getElementById("h3p6-input").value)+parseFloat(document.getElementById("h4p6-input").value)+parseFloat(document.getElementById("h5p6-input").value)+parseFloat(document.getElementById("h6p6-input").value)+parseFloat(document.getElementById("h7p6-input").value)+parseFloat(document.getElementById("h8p6-input").value)+parseFloat(document.getElementById("h9p6-input").value);
+var player6scoreadj = parseFloat(document.getElementById("h1p6-input").value)+parseFloat(document.getElementById("h2p6-input").value)+parseFloat(document.getElementById("h3p6-input").value)+parseFloat(document.getElementById("h4p6-input").value)+parseFloat(document.getElementById("h5p6-input").value)+parseFloat(document.getElementById("h6p6-input").value)+parseFloat(document.getElementById("h7p6-input").value)+parseFloat(document.getElementById("h8p6-input").value)+parseFloat(document.getElementById("h9p6-input").value)-handicap[player6value][1];
+document.getElementById('total6').innerHTML = player6score;
+document.getElementById('total6adj').innerHTML = player6scoreadj;
+scores.push([player6value,player6score]);
+scoresadj.push([player6value,player6scoreadj]);
+};
+if (noplay>6) {
+var player7score = parseFloat(document.getElementById("h1p7-input").value)+parseFloat(document.getElementById("h2p7-input").value)+parseFloat(document.getElementById("h3p7-input").value)+parseFloat(document.getElementById("h4p7-input").value)+parseFloat(document.getElementById("h5p7-input").value)+parseFloat(document.getElementById("h6p7-input").value)+parseFloat(document.getElementById("h7p7-input").value)+parseFloat(document.getElementById("h8p7-input").value)+parseFloat(document.getElementById("h9p7-input").value);
+var player7scoreadj = parseFloat(document.getElementById("h1p7-input").value)+parseFloat(document.getElementById("h2p7-input").value)+parseFloat(document.getElementById("h3p7-input").value)+parseFloat(document.getElementById("h4p7-input").value)+parseFloat(document.getElementById("h5p7-input").value)+parseFloat(document.getElementById("h6p7-input").value)+parseFloat(document.getElementById("h7p7-input").value)+parseFloat(document.getElementById("h8p7-input").value)+parseFloat(document.getElementById("h9p7-input").value)-handicap[player7value][1];
+document.getElementById('total7').innerHTML = player7score;
+document.getElementById('total7adj').innerHTML = player7scoreadj;
+scores.push([player7value,player7score]);
+scoresadj.push([player7value,player7scoreadj]);
+};
+if (noplay>7) {
+var player8score = parseFloat(document.getElementById("h1p8-input").value)+parseFloat(document.getElementById("h2p8-input").value)+parseFloat(document.getElementById("h3p8-input").value)+parseFloat(document.getElementById("h4p8-input").value)+parseFloat(document.getElementById("h5p8-input").value)+parseFloat(document.getElementById("h6p8-input").value)+parseFloat(document.getElementById("h7p8-input").value)+parseFloat(document.getElementById("h8p8-input").value)+parseFloat(document.getElementById("h9p8-input").value);
+var player8scoreadj = parseFloat(document.getElementById("h1p8-input").value)+parseFloat(document.getElementById("h2p8-input").value)+parseFloat(document.getElementById("h3p8-input").value)+parseFloat(document.getElementById("h4p8-input").value)+parseFloat(document.getElementById("h5p8-input").value)+parseFloat(document.getElementById("h6p8-input").value)+parseFloat(document.getElementById("h7p8-input").value)+parseFloat(document.getElementById("h8p8-input").value)+parseFloat(document.getElementById("h9p8-input").value)-handicap[player8value][1];
+document.getElementById('total8').innerHTML = player8score;
+document.getElementById('total8adj').innerHTML = player8scoreadj;
+scores.push([player8value,player8score]);
+scoresadj.push([player8value,player8scoreadj]);
+};
+if (noplay>8) {
+var player9score = parseFloat(document.getElementById("h1p9-input").value)+parseFloat(document.getElementById("h2p9-input").value)+parseFloat(document.getElementById("h3p9-input").value)+parseFloat(document.getElementById("h4p9-input").value)+parseFloat(document.getElementById("h5p9-input").value)+parseFloat(document.getElementById("h6p9-input").value)+parseFloat(document.getElementById("h7p9-input").value)+parseFloat(document.getElementById("h8p9-input").value)+parseFloat(document.getElementById("h9p9-input").value);
+var player9scoreadj = parseFloat(document.getElementById("h1p9-input").value)+parseFloat(document.getElementById("h2p9-input").value)+parseFloat(document.getElementById("h3p9-input").value)+parseFloat(document.getElementById("h4p9-input").value)+parseFloat(document.getElementById("h5p9-input").value)+parseFloat(document.getElementById("h6p9-input").value)+parseFloat(document.getElementById("h7p9-input").value)+parseFloat(document.getElementById("h8p9-input").value)+parseFloat(document.getElementById("h9p9-input").value)-handicap[player9value][1];
+document.getElementById('tota19').innerHTML = player9score;
+document.getElementById('total9adj').innerHTML = player9scoreadj;
+scores.push([player9value,player9score]);
+scoresadj.push([player9value,player9scoreadj]);
+};
+if (noplay>9) {
+var player10score = parseFloat(document.getElementById("h1p10-input").value)+parseFloat(document.getElementById("h2p10-input").value)+parseFloat(document.getElementById("h3p10-input").value)+parseFloat(document.getElementById("h4p10-input").value)+parseFloat(document.getElementById("h5p10-input").value)+parseFloat(document.getElementById("h6p10-input").value)+parseFloat(document.getElementById("h7p10-input").value)+parseFloat(document.getElementById("h8p10-input").value)+parseFloat(document.getElementById("h9p10-input").value);
+var player10scoreadj = parseFloat(document.getElementById("h1p10-input").value)+parseFloat(document.getElementById("h2p10-input").value)+parseFloat(document.getElementById("h3p10-input").value)+parseFloat(document.getElementById("h4p10-input").value)+parseFloat(document.getElementById("h5p10-input").value)+parseFloat(document.getElementById("h6p10-input").value)+parseFloat(document.getElementById("h7p10-input").value)+parseFloat(document.getElementById("h8p10-input").value)+parseFloat(document.getElementById("h9p10-input").value)-handicap[player10value][1];
+document.getElementById('total10').innerHTML = player10score;
+document.getElementById('total10adj').innerHTML = player10scoreadj;
+scores.push([player10value,player10score]);
+scoresadj.push([player10value,player10scoreadj]);
+};
+if (noplay>10) {
+var player11score = parseFloat(document.getElementById("h1p11-input").value)+parseFloat(document.getElementById("h2p11-input").value)+parseFloat(document.getElementById("h3p11-input").value)+parseFloat(document.getElementById("h4p11-input").value)+parseFloat(document.getElementById("h5p11-input").value)+parseFloat(document.getElementById("h6p11-input").value)+parseFloat(document.getElementById("h7p11-input").value)+parseFloat(document.getElementById("h8p11-input").value)+parseFloat(document.getElementById("h9p11-input").value);
+var player11scoreadj = parseFloat(document.getElementById("h1p11-input").value)+parseFloat(document.getElementById("h2p11-input").value)+parseFloat(document.getElementById("h3p11-input").value)+parseFloat(document.getElementById("h4p11-input").value)+parseFloat(document.getElementById("h5p11-input").value)+parseFloat(document.getElementById("h6p11-input").value)+parseFloat(document.getElementById("h7p11-input").value)+parseFloat(document.getElementById("h8p11-input").value)+parseFloat(document.getElementById("h9p11-input").value)-handicap[player11value][1];
+document.getElementById('total11').innerHTML = player11score;
+document.getElementById('total11adj').innerHTML = player11scoreadj;
+scores.push([player11value,player11score]);
+scoresadj.push([player11value,player11scoreadj]);
+};
+if (noplay>11) {
+var player12score = parseFloat(document.getElementById("h1p12-input").value)+parseFloat(document.getElementById("h2p12-input").value)+parseFloat(document.getElementById("h3p12-input").value)+parseFloat(document.getElementById("h4p12-input").value)+parseFloat(document.getElementById("h5p12-input").value)+parseFloat(document.getElementById("h6p12-input").value)+parseFloat(document.getElementById("h7p12-input").value)+parseFloat(document.getElementById("h8p12-input").value)+parseFloat(document.getElementById("h9p12-input").value);
+var player12scoreadj = parseFloat(document.getElementById("h1p12-input").value)+parseFloat(document.getElementById("h2p12-input").value)+parseFloat(document.getElementById("h3p12-input").value)+parseFloat(document.getElementById("h4p12-input").value)+parseFloat(document.getElementById("h5p12-input").value)+parseFloat(document.getElementById("h6p12-input").value)+parseFloat(document.getElementById("h7p12-input").value)+parseFloat(document.getElementById("h8p12-input").value)+parseFloat(document.getElementById("h9p12-input").value)-handicap[player12value][1];
+document.getElementById('total12').innerHTML = player12score;
+document.getElementById('total12adj').innerHTML = player12scoreadj;
+scores.push([player12value,player12score]);
+scoresadj.push([player12value,player12scoreadj]);
+};
+if (noplay>12) {
+var player13score = parseFloat(document.getElementById("h1p13-input").value)+parseFloat(document.getElementById("h2p13-input").value)+parseFloat(document.getElementById("h3p13-input").value)+parseFloat(document.getElementById("h4p13-input").value)+parseFloat(document.getElementById("h5p13-input").value)+parseFloat(document.getElementById("h6p13-input").value)+parseFloat(document.getElementById("h7p13-input").value)+parseFloat(document.getElementById("h8p13-input").value)+parseFloat(document.getElementById("h9p13-input").value);
+var player13scoreadj = parseFloat(document.getElementById("h1p13-input").value)+parseFloat(document.getElementById("h2p13-input").value)+parseFloat(document.getElementById("h3p13-input").value)+parseFloat(document.getElementById("h4p13-input").value)+parseFloat(document.getElementById("h5p13-input").value)+parseFloat(document.getElementById("h6p13-input").value)+parseFloat(document.getElementById("h7p13-input").value)+parseFloat(document.getElementById("h8p13-input").value)+parseFloat(document.getElementById("h9p13-input").value)-handicap[player13value][1];
+document.getElementById('total13').innerHTML = player13score;
+document.getElementById('total13adj').innerHTML = player13scoreadj;
+scores.push([player13value,player13score]);
+scoresadj.push([player13value,player13scoreadj]);
+};
+if (noplay>13) {
+var player14score = parseFloat(document.getElementById("h1p14-input").value)+parseFloat(document.getElementById("h2p14-input").value)+parseFloat(document.getElementById("h3p14-input").value)+parseFloat(document.getElementById("h4p14-input").value)+parseFloat(document.getElementById("h5p14-input").value)+parseFloat(document.getElementById("h6p14-input").value)+parseFloat(document.getElementById("h7p14-input").value)+parseFloat(document.getElementById("h8p14-input").value)+parseFloat(document.getElementById("h9p14-input").value);
+var player14scoreadj = parseFloat(document.getElementById("h1p14-input").value)+parseFloat(document.getElementById("h2p14-input").value)+parseFloat(document.getElementById("h3p14-input").value)+parseFloat(document.getElementById("h4p14-input").value)+parseFloat(document.getElementById("h5p14-input").value)+parseFloat(document.getElementById("h6p14-input").value)+parseFloat(document.getElementById("h7p14-input").value)+parseFloat(document.getElementById("h8p14-input").value)+parseFloat(document.getElementById("h9p14-input").value)-handicap[player14value][1];
+document.getElementById('total14').innerHTML = player14score;
+document.getElementById('total14adj').innerHTML = player14scoreadj;
+scores.push([player14value,player14score]);
+scoresadj.push([player14value,player14scoreadj]);
+};
+if (noplay>14) {
+var player15score = parseFloat(document.getElementById("h1p15-input").value)+parseFloat(document.getElementById("h2p15-input").value)+parseFloat(document.getElementById("h3p15-input").value)+parseFloat(document.getElementById("h4p15-input").value)+parseFloat(document.getElementById("h5p15-input").value)+parseFloat(document.getElementById("h6p15-input").value)+parseFloat(document.getElementById("h7p15-input").value)+parseFloat(document.getElementById("h8p15-input").value)+parseFloat(document.getElementById("h9p15-input").value);
+var player15scoreadj = parseFloat(document.getElementById("h1p15-input").value)+parseFloat(document.getElementById("h2p15-input").value)+parseFloat(document.getElementById("h3p15-input").value)+parseFloat(document.getElementById("h4p15-input").value)+parseFloat(document.getElementById("h5p15-input").value)+parseFloat(document.getElementById("h6p15-input").value)+parseFloat(document.getElementById("h7p15-input").value)+parseFloat(document.getElementById("h8p15-input").value)+parseFloat(document.getElementById("h9p15-input").value)-handicap[player15value][1];
+document.getElementById('total15').innerHTML = player15score;
+document.getElementById('total15adj').innerHTML = player15scoreadj;
+scores.push([player15value,player15score]);
+scoresadj.push([player15value,player15scoreadj]);
+};
+if (noplay>15) {
+var player16score = parseFloat(document.getElementById("h1p16-input").value)+parseFloat(document.getElementById("h2p16-input").value)+parseFloat(document.getElementById("h3p16-input").value)+parseFloat(document.getElementById("h4p16-input").value)+parseFloat(document.getElementById("h5p16-input").value)+parseFloat(document.getElementById("h6p16-input").value)+parseFloat(document.getElementById("h7p16-input").value)+parseFloat(document.getElementById("h8p16-input").value)+parseFloat(document.getElementById("h9p16-input").value);
+var player16scoreadj = parseFloat(document.getElementById("h1p16-input").value)+parseFloat(document.getElementById("h2p16-input").value)+parseFloat(document.getElementById("h3p16-input").value)+parseFloat(document.getElementById("h4p16-input").value)+parseFloat(document.getElementById("h5p16-input").value)+parseFloat(document.getElementById("h6p16-input").value)+parseFloat(document.getElementById("h7p16-input").value)+parseFloat(document.getElementById("h8p16-input").value)+parseFloat(document.getElementById("h9p16-input").value)-handicap[player16value][1];
+document.getElementById('total16').innerHTML = player16score;
+document.getElementById('total16adj').innerHTML = player16scoreadj;
+scores.push([player16value,player16score]);
+scoresadj.push([player16value,player16scoreadj]);
+};
+
+
+scores.sort(function (a, b) {
+    var x=a[1];
+    var y=b[1];
+    return x-y;
+}
+);
+
+scoresadj.sort(function (a, b) {
+    var x=a[1];
+    var y=b[1];
+    return x-y;
+}
+);
+
+
+p1totscorechange(scores[0][1]);
+p2totscorechange(scoresadj[0][1]);
+
+
+winner1=scores[0][0];
+Win1=handicap[winner1][0];
+imgp1html='<img src="img/'+Win1+'.jpg" height="80" width="80">';
+photo1change(imgp1html);
+
+winner2=scoresadj[0][0];
+Win2=handicap[winner2][0];
+imgp2html='<img src="img/'+Win2+'.jpg" height="80" width="80">';
+photo2change(imgp2html);
+};
+
+$('.btn-number').click(function(e){
+    e.preventDefault();
+    
+    fieldName = $(this).attr('data-field');
+    type      = $(this).attr('data-type');
+    var input = $("input[name='"+fieldName+"']");
+    var currentVal = parseInt(input.val());
+    if (!isNaN(currentVal)) {
+        if(type == 'minus') {
+    
+                input.val(currentVal - 1).change();
+        } else if(type == 'plus') {
+                input.val(currentVal + 1).change();
+            }
+        }
+     else {
+        input.val(0);
+    }
+});
+$('.input-number').focusin(function(){
+   $(this).data('oldValue', $(this).val());
+});
+$('.input-number').change(function() {
+    
+    valueCurrent = parseInt($(this).val());
+    
+    name = $(this).attr('name');
+    
+    
+});
+$(".input-number").keydown(function (e) {
+        // Allow: backspace, delete, tab, escape, enter and .
+        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
+             // Allow: Ctrl+A
+            (e.keyCode == 65 && e.ctrlKey === true) || 
+             // Allow: home, end, left, right
+            (e.keyCode >= 35 && e.keyCode <= 39)) {
+                 // let it happen, don't do anything
+                 return;
+        }
+        // Ensure that it is a number and stop the keypress
+        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+            e.preventDefault();
+        }
+    });
+
+if (noplay==1) {
+  player1();
+}
+else if (noplay==2) {
+  player1();
+  player2();
+}
+else if (noplay==3) {
+  player1();
+  player2();
+  player3();
+}
+else if (noplay==4) {
+  player1();
+  player2();
+  player3();
+  player4();
+}
+else if (noplay==5) {
+  player1();
+  player2();
+  player3();
+  player4();
+  player5();
+}
+else if (noplay==6) {
+  player1();
+  player2();
+  player3();
+  player4();
+  player5();
+  player6();
+}
+else if (noplay==7) {
+  player1();
+  player2();
+  player3();
+  player4();
+  player5();
+  player6();
+  player7();
+}
+else if (noplay==8) {
+  player1();
+  player2();
+  player3();
+  player4();
+  player5();
+  player6();
+  player7();
+  player8();
+}
+else if (noplay==9) {
+  player1();
+  player2();
+  player3();
+  player4();
+  player5();
+  player6();
+  player7();
+  player8();
+  player9();
+}
+else if (noplay==10) {
+  player1();
+  player2();
+  player3();
+  player4();
+  player5();
+  player6();
+  player7();
+  player8();
+  player9();
+  player10();
+}
+else if (noplay==11) {
+  player1();
+  player2();
+  player3();
+  player4();
+  player5();
+  player6();
+  player7();
+  player8();
+  player9();
+  player10();
+  player11();
+}
+else if (noplay==12) {
+  player1();
+  player2();
+  player3();
+  player4();
+  player5();
+  player6();
+  player7();
+  player8();
+  player9();
+  player10();
+  player11();
+  player12();
+}
+else if (noplay==13) {
+  player1();
+  player2();
+  player3();
+  player4();
+  player5();
+  player6();
+  player7();
+  player8();
+  player9();
+  player10();
+  player11();
+  player12();
+  player13();
+}
+else if (noplay==14) {
+  player1();
+  player2();
+  player3();
+  player4();
+  player5();
+  player6();
+  player7();
+  player8();
+  player9();
+  player10();
+  player11();
+  player12();
+  player13();
+  player14();
+}
+else if (noplay==15) {
+  player1();
+  player2();
+  player3();
+  player4();
+  player5();
+  player6();
+  player7();
+  player8();
+  player9();
+  player10();
+  player11();
+  player12();
+  player13();
+  player14();
+  player15();
+}
+else if (noplay==16) {
+  player1();
+  player2();
+  player3();
+  player4();
+  player5();
+  player6();
+  player7();
+  player8();
+  player9();
+  player10();
+  player11();
+  player12();
+  player13();
+  player14();
+  player15();
+  player16();
+};
+</script>
+
+<br>
+   <table class="wintable" style="align:center;">
+    <tr>
+    <td>Winner</td>
+        <td id="p1totscore" class="p1totscore" text-align="center"><b>0</b></td>
+        <td id="photo1"><img src="img/Unknown.jpg" height="80" width="80"></td>
+  </tr>
+    <tr>
+    <td>Winner (adjusted)</td>
+        <td id="p2totscore" class="p2totscore" text-align="center"><b>0</b></td>
+        <td id="photo2"><img src="img/Unknown.jpg" height="80" width="80"></td>
+
+</tr>
+</table>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.bulletin.js"></script>
+    <script src="js/bootstrap-table.js"></script>
+    <script src="docs.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
