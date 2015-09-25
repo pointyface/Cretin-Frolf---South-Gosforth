@@ -21,7 +21,6 @@
     <link href="theme.css" rel="stylesheet">
 
         <style type="text/css">
-
 body {
     margin-left: 20px;
     margin-right: 20px;
@@ -35,44 +34,20 @@ border: 1px solid #66FF99;
 }
 
 td {
-    width: 50px;
+    width: 30%;
     background-color:#66FF99;
     border: 1px solid #66FF99;
     text-align:center;
 }
 
 th {
-    width: 50px;
     background-color:#66FF99;
     border: 1px solid #66FF99;
     text-align: center;
 }
 
-.wintable {
-border: none;
-width: 90%;
-margin-left:5%;
-margin-right:5%;
-}
-
-.form-control  {
-    width: 30px;
-    text-align: center;
-    background-color:#66FF99;
-}
-
-.p1totscore {
-    width: 25%;
-    text-align: center;
-    background-color:  #0066FF;
-    font-size: 40px;
-}
-
-.p2totscore {
-    width: 25%;
-    text-align: center;
-    background-color: #FF9933;
-    font-size: 40px;
+.selected {
+  opacity: 0.6;
 }
 
 </style>
@@ -92,160 +67,72 @@ margin-right:5%;
 <br>
 <br>
 
-<script type="text/javascript">
-
-var val = sessionStorage.numberplayarr;
 
 
-if (val.length==1){
-noplay=val[0];
-}
-else {
-    noplay=val[0]+val[1];
-}
+<table>
+<tr>
+<td><div id="Beast"><img src="img/Beast.jpg" onclick="selection(0,'Beast');"  height="80" width="80"/></div></td>
+<td><div id="Davies"><img src="img/Davies.jpg" onclick="selection(1,'Davies');"  height="80" width="80"/></div></td>
+<td><div id="Gibbo"><img src="img/d.I.G..jpg" onclick="selection(2,'Gibbo');"  height="80" width="80"/></div></td>
+</tr>
+<tr>
+<td><div id="Fin"><img src="img/Fin.jpg" onclick="selection(3,'Fin');"  height="80" width="80"/></div></td>
+<td><div id="Fish"><img src="img/Fish.jpg" onclick="selection(4,'Fish');"  height="80" width="80"/></div></td>
+<td><div id="Gary"><img src="img/Gary.jpg" onclick="selection(5,'Gary');"  height="80" width="80"/></div></td>
+</tr>
+<tr>
+<td><div id="Hodge"><img src="img/Hodge.jpg" onclick="selection(6,'Hodge');"  height="80" width="80"/></div></td>
+<td><div id="John"><img src="img/John.jpg" onclick="selection(7,'John');"  height="80" width="80"/></div></td>
+<td><div id="Keith"><img src="img/Keith.jpg" onclick="selection(8,'Keith');"  height="80" width="80"/></div></td>
+</tr>
+<tr>
+<td><div id="Nichols"><img src="img/Nichols.jpg" onclick="selection(9,'Nichols');"  height="80" width="80"/></div></td>
+<td><div id="Pearce"><img src="img/Pearce.jpg" onclick="selection(10,'Pearce');"  height="80" width="80"/></div></td>
+<td><div id="Skippa"><img src="img/Skippa.jpg" onclick="selection(11,'Skippa');"  height="80" width="80"/></div></td>
+</tr>
+<tr>
+<td><div id="Spoon"><img src="img/Spoon.jpg" onclick="selection(12,'Spoon');"  height="80" width="80"/></div></td>
+<td><div id="Truck"><img src="img/Truck.jpg" onclick="selection(13,'Truck');"  height="80" width="80"/></div></td>
+<td><div id="Go"><img src="img/go.jpg" onclick="play();"  height="80" width="80"/></div></td>
+</tr>
+</table>
+<script>
 
-playersp=[];
-var locl = 'SG-SP'
-var i=1;
 
-while (i<=noplay) 
-{
-  document.write('<div align="center"><h1 style="text-align:center;">Select cretin ' + i + '</h1><select id="player' + i + '" onchange="Pl' + i + 'name();" style:"margin-top:0px; float:left;"><option value="99" selected="selected">Select</option><option value="0">Beast</option><option value="1">Davies</option><option value="2">d.I.G.</option><option value="3">Fin</option><option value="4">Fish</option><option value="5">Gary</option><option value="6">Hodge</option><option value="7">John</option><option value="8">Keith</option><option value="9">Nichols</option><option value="10">Pearce</option><option value="11">Skippa</option><option value="12">Spoon</option><option value="13">Truck</option></select></div>')
-
-i++;
-};
-
-function Pl1name() {
+var playersp=[];
 playersp.length = 0;
-playersp.push(noplay);
-Plyr1=player1.options[player1.selectedIndex].value;
-playersp.push(Plyr1);
-if (noplay==1) {
-    sessionStorage.playersp=playersp;
-    location = 'SG-SP.html';
-}
-};
-function Pl2name() {
-Plyr2=player2.options[player2.selectedIndex].value;
-playersp.push(Plyr2);
-if (noplay==2) {
-    sessionStorage.playersp=playersp;
-    location = 'SG-SP.html';
-}
-};
-function Pl3name() {
-Plyr3=player3.options[player3.selectedIndex].value;
-playersp.push(Plyr3);
-if (noplay==3) {
-    sessionStorage.playersp=playersp;
-    location = 'SG-SP.html';
-}
-};
-function Pl4name() {
-Plyr4=player4.options[player4.selectedIndex].value;
-playersp.push(Plyr4);
-if (noplay==4) {
-    sessionStorage.playersp=playersp;
-    location = 'SG-SP.html';
-}
-};
-function Pl5name() {
-Plyr5=player5.options[player5.selectedIndex].value;
-playersp.push(Plyr5);
-if (noplay==5) {
-    sessionStorage.playersp=playersp;
-    location = 'SG-SP.html';
-}
-};
-function Pl6name() {
-Plyr6=player6.options[player6.selectedIndex].value;
-playersp.push(Plyr6);
-if (noplay==6) {
-    sessionStorage.playersp=playersp;
-    location = 'SG-SP.html';
-}
-};
-function Pl7name() {
-Plyr7=player7.options[player7.selectedIndex].value;
-playersp.push(Plyr7);
-if (noplay==7) {
-    sessionStorage.playersp=playersp;
-    location = 'SG-SP.html';
-}
-};
-function Pl8name() {
-Plyr8=player8.options[player8.selectedIndex].value;
-playersp.push(Plyr8);
-if (noplay==8) {
-    sessionStorage.playersp=playersp;
-    location = 'SG-SP.html';
-}
-};
-function Pl9name() {
-Plyr9=player9.options[player9.selectedIndex].value;
-playersp.push(Plyr9);
-if (noplay==9) {
-    sessionStorage.playersp=playersp;
-    location = 'SG-SP.html';
-}
-};
-function Pl10name() {
-Plyr10=player10.options[player10.selectedIndex].value;
-playersp.push(Plyr10);
-if (noplay==10) {
-    sessionStorage.playersp=playersp;
-    location = 'SG-SP.html';
-}
-};
-function Pl11name() {
-Plyr11=player11.options[player11.selectedIndex].value;
-playersp.push(Plyr11);
-if (noplay==11) {
-    sessionStorage.playersp=playersp;
-    location = 'SG-SP.html';
-}
-};
-function Pl12name() {
-Plyr12=player12.options[player12.selectedIndex].value;
-playersp.push(Plyr12);
-if (noplay==12) {
-    sessionStorage.playersp=playersp;
-    location = 'SG-SP.html';
-}
-};
-function Pl13name() {
-Plyr13=player13.options[player13.selectedIndex].value;
-playersp.push(Plyr13);
-if (noplay==13) {
-    sessionStorage.playersp=playersp;
-    location = 'SG-SP.html';
-}
-};
-function Pl14name() {
-Plyr14=player14.options[player14.selectedIndex].value;
-playersp.push(Plyr14);
-if (noplay==14) {
-    sessionStorage.playersp=playersp;
-    location = 'SG-SP.html';
-}
-};
-function Pl15name() {
-Plyr15=player15.options[player15.selectedIndex].value;
-playersp.push(Plyr15);
-if (noplay==15) {
-    sessionStorage.playersp=playersp;
-    location = 'SG-SP.html';
-}
-};
-function Pl16name() {
-Plyr16=player16.options[player16.selectedIndex].value;
-playersp.push(Plyr16);
-if (noplay==16) {
-    sessionStorage.playersp=playersp;
-    location = 'SG-SP.html';
-}
-};
+var index=0;
+var nop=0;
+idcards="";
 
+function selection(alpha,idcard) {
+
+  teste=alpha;
+  idcards=idcard;
+
+    var index=playersp.indexOf(teste);
+
+if (playersp.length==0) {
+playersp.push(alpha);
+document.getElementById(idcards).setAttribute("class",'selected');
+}
+
+ else {
+   if (index>-1) {
+         playersp.splice(index,1);
+     document.getElementById(idcards).removeAttribute("class");
+     }
+playersp.push(alpha);
+document.getElementById(idcards).setAttribute("class",'selected');
+};
+}
+
+function play() {
+var nop=playersp.length;
+playersp.push(nop);
+sessionStorage.playersp = playersp;
+window.location="SG-SP.html";
+}
 </script> 
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/bootstrap.min.js"></script>

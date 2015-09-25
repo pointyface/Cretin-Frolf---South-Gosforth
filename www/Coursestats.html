@@ -1,0 +1,341 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>WBFL - South Gosforth</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="theme.css" rel="stylesheet">
+
+        <style type="text/css">
+body {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+    background-color: #66FF99;
+}
+
+table {
+width: 100%;
+border: 1px solid #66FF99;
+}
+
+td {
+    width: 50px;
+    background-color:#66FF99;
+    border: 1px solid #66FF99;
+    text-align:center;
+}
+
+th {
+    width: 50px;
+    background-color:#66FF99;
+    border: 1px solid #66FF99;
+    text-align: center;
+}
+
+h2 {
+
+  text-align: center;
+}
+
+h4 {
+
+  text-align: center;
+}
+
+h5 {
+
+  text-align: center;
+}
+</style>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="js/ie-emulation-modes-warning.js"></script>
+<script src="js/jquery.csv-0.71.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body role="document">
+<img src="img/CFlogoCS.png" style="width:100%">
+<br>
+
+
+     <div class="tab-pane fade in active" id="Tables">
+<h2>Statistics on the course</h2>
+     <h4>Key course statistics</h4>
+
+     <div class="row">
+<div class="table-responsive">
+  <table class="table">
+            <tbody>
+              <tr>
+                <td>The average course score (over par)</td>
+              </tr>
+              <tr>                
+                <td id="SGavesm"></td>
+              </tr>
+              <tr>
+                <td>The easiest hole on average (difference to par)</td>
+              </tr>
+              <tr>                
+                <td id="SGeasysm"></td>
+              </tr>
+              <tr>
+                <td>The hardest hole on average (difference to par)</td>
+              </tr>
+              <tr>                
+                <td id="SGhardsm"></td>
+              </tr>
+            </tbody>
+          </table>
+  </div>
+  </div> 
+
+  <h4>Hole by hole analysis</h4>
+  
+<div align="center">
+<h5 style="margin-left:20px">Holes ranked by easiest to hardest</h5>
+<div id="chart"></div>
+</div>
+
+
+<script src="http://wbpl.sdrew.net/Frolf/Data/data.js"></script>
+    <script src="js/jquery.js" type="text/javascript"></script>
+    <script src="js/jquery-ui-1.10.4.custom.min.js"></script> 
+    <script src="js/modernizr.svg.min.js" type="text/javascript"></script>
+    <script src="js/d3.js"></script>
+<script>
+var handicap=[
+["Beast",10],
+["Davies",6],
+["d.I.G.",9],
+["Fin",1],
+["Fish",3],
+["Gary",7],
+["Hodge",0],
+["John",2],
+["Keith",5],
+["Nichols",10],
+["Pearce",2],
+["Skippa",6],
+["Spoon",1],
+["Truck",4]
+];
+
+
+function SGavechangesm(txt41) {
+document.getElementById('SGavesm').innerHTML = txt41;
+}
+
+function SGeasychangesm(txt11) {
+document.getElementById('SGeasysm').innerHTML = txt11;
+}
+
+function SGhardchangesm(txt21) {
+document.getElementById('SGhardsm').innerHTML = txt21;
+}
+
+holes.sort();
+
+var easyh=holes[0];
+var hardh=holes[8];
+var ave=0;
+
+for(var i = 0, len = holes.length; i < len; i++) {
+    ave += holes[i][0];  
+}
+
+var easyhole="Hole "+easyh[1]+" ("+easyh[0].toFixed(2)+")";
+var hardhole="Hole "+hardh[1]+" ("+hardh[0].toFixed(2)+")";
+
+var aver=ave.toFixed(2);
+
+SGavechangesm(aver);
+SGeasychangesm(easyhole);
+SGhardchangesm(hardhole);
+
+function drawCircles (width) {
+
+    var margin = {top: 20, right: 40, bottom: 10, left: 40},
+        width = 200,
+        height = 500 - margin.top - margin.bottom;
+
+$("#chart").empty();
+
+    var x = d3.scale.linear()
+        .range([0, 22]);
+
+    var y = d3.scale.ordinal()
+        .rangeRoundBands([0, height], .1);
+
+    var color = d3.scale.ordinal().range(['#74E600','#26527C','#61D7A4','#6CAC2B','#408AD2','#218359','#36D792','#679ED2','#B0F26D','#4B9500','#98F23D','#04396C','#007241']);
+
+    var svg = d3.select("#chart").append("svg")
+          .attr("width", width + margin.left + margin.right)
+          .attr("height", height + margin.top + margin.bottom)
+          .style("margin-left", -margin.left + "px")
+
+        var data = holes.map(function(d) {
+      return {
+         hole: d[0],
+         average: d[1]
+      };
+
+});
+
+topTen = data.sort(function(a, b) { return a.average - b.average; }).slice(0, 9);
+
+     x.domain([-0.5,10]);
+      y.domain(data.map(function(d) { return d.hole; }));
+
+
+      svg.selectAll(".circleGroup")
+          .data(data, function(d) { return d.hole; })
+          .enter()
+            .append("g")
+              .attr("class", "circleGroup")
+              .attr("transform", function(d) { return "translate(0," + (y(d.hole) + height) + ")"; })
+              .style("fill-opacity", .5)
+              .each(function (d, i) {
+                d3.select(this)
+                  .append("circle")
+                    .style("fill", function(d) { return color(d.hole) })
+                    .attr("cx", width / 2)
+                    .attr("cy", y.rangeBand())
+                    .attr("r", function(d) { return x(d.average); })
+
+                d3.select(this)
+                  .append("text")
+                    .attr("class", "label")
+                    .attr("x", (width / 2) + 60)
+                    .attr("y", y.rangeBand() - 10)
+                    .attr("dy", ".35em")
+                    .attr("text-anchor", "start")
+                    .text(function(d) { return "Hole " + d.hole; });
+
+                d3.select(this)
+                  .append("text")
+                    .attr("x", (width / 2) + 60)
+                    .attr("y", y.rangeBand() + 10)
+                    .attr("dy", ".35em")
+                    .attr("text-anchor", "start")
+                    .text(function(d) { return d.average; });
+                });
+
+     svg.selectAll(".circleGroup")
+          .data(data, function(d) { return d.hole; })
+            .transition()
+            .duration(2000)
+            .attr("transform", function(d) { return "translate(0," + (d.y0 = y(d.hole)) + ")"; })
+            .style("fill-opacity", 1)
+            .each(function (d, i) {
+                d3.select(this)
+                  .select("circle")
+                  .attr("r", function(d) { return x(d.average); })
+
+                d3.select(this)
+                  .select(".value")
+                  .text(function(d) { return format(d.average); })
+            });
+
+      svg.selectAll(".circleGroup")
+          .data(data, function(d) { return d.hole; })
+          .exit()
+            .transition()
+            .duration(2000)
+            .attr("transform", function(d) { return "translate(0," + (d.y0 + height) + ")"; })
+            .style("fill-opacity", 0)
+            .remove();
+
+};
+
+drawCircles();
+
+$('.player1').click(function() {
+players(Beast,"Beast");
+drawCircles();
+});
+$('.player2').click(function() {
+players(Swoosh,"Davies");
+drawCircles();
+});
+$('.player3').click(function() {
+players(Gibbo,"d.I.G.");
+drawCircles();
+});
+$('.player4').click(function() {
+players(Fin,"Fin");
+drawCircles();
+});
+$('.player5').click(function() {
+players(Fish,"Fish");
+drawCircles();
+});
+$('.player6').click(function() {
+players(Ceefax,"Gary");
+drawCircles();
+});
+$('.player7').click(function() {
+players(Hodge,"Hodge");
+drawCircles();
+});
+$('.player8').click(function() {
+players(John,"John");
+drawCircles();
+});
+$('.player9').click(function() {
+players(Keith,"Keith");
+drawCircles();
+});
+$('.player10').click(function() {
+players(Nichols,"Nichols");
+drawCircles();
+});
+$('.player11').click(function() {
+players(Pearce,"Pearce");
+drawCircles();
+});
+$('.player12').click(function() {
+players(Skippa,"Skippa");
+drawCircles();
+});
+$('.player13').click(function() {
+players(Spoon,"Spoon");
+drawCircles();
+});
+$('.player14').click(function() {
+players(Truck,"Truck");
+drawCircles();
+});
+
+</script>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/docs.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <script async src="js/highlight.min.js"></script>
+
+  </body>
+</html>

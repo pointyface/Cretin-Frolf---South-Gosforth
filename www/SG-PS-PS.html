@@ -21,7 +21,6 @@
     <link href="theme.css" rel="stylesheet">
 
         <style type="text/css">
-
 body {
     margin-left: 20px;
     margin-right: 20px;
@@ -67,39 +66,40 @@ th {
 <img src="img/Playerselect-MP.png" style="width:100%">
 <br>
 <br>
-<br>
+
+
 
 <table>
 <tr>
-<td><div id="Beast"><img src="img/Beast.jpg" onclick="selection(0,'Beast');"  height="80" width="80"/></div></td>
-<td><div id="Davies"><img src="img/Davies.jpg" onclick="selection(1,'Davies');"  height="80" width="80"/></div></td>
-<td><div id="Gibbo"><img src="img/d.I.G..jpg" onclick="selection(2,'Gibbo');"  height="80" width="80"/></div></td>
+<td><div id="Beast"><img src="img/Beast.jpg" onclick="selection(1,'Beast');"  height="80" width="80"/></div></td>
+<td><div id="Davies"><img src="img/Davies.jpg" onclick="selection(2,'Davies');"  height="80" width="80"/></div></td>
+<td><div id="Gibbo"><img src="img/d.I.G..jpg" onclick="selection(3,'Gibbo');"  height="80" width="80"/></div></td>
 </tr>
 <tr>
-<td><div id="Fin"><img src="img/Fin.jpg" onclick="selection(3,'Fin');"  height="80" width="80"/></div></td>
-<td><div id="Fish"><img src="img/Fish.jpg" onclick="selection(4,'Fish');"  height="80" width="80"/></div></td>
-<td><div id="Gary"><img src="img/Gary.jpg" onclick="selection(5,'Gary');"  height="80" width="80"/></div></td>
+<td><div id="Fin"><img src="img/Fin.jpg" onclick="selection(4,'Fin');"  height="80" width="80"/></div></td>
+<td><div id="Fish"><img src="img/Fish.jpg" onclick="selection(5,'Fish');"  height="80" width="80"/></div></td>
+<td><div id="Gary"><img src="img/Gary.jpg" onclick="selection(6,'Gary');"  height="80" width="80"/></div></td>
 </tr>
 <tr>
-<td><div id="Hodge"><img src="img/Hodge.jpg" onclick="selection(6,'Hodge');"  height="80" width="80"/></div></td>
-<td><div id="John"><img src="img/John.jpg" onclick="selection(7,'John');"  height="80" width="80"/></div></td>
-<td><div id="Keith"><img src="img/Keith.jpg" onclick="selection(8,'Keith');"  height="80" width="80"/></div></td>
+<td><div id="Hodge"><img src="img/Hodge.jpg" onclick="selection(7,'Hodge');"  height="80" width="80"/></div></td>
+<td><div id="John"><img src="img/John.jpg" onclick="selection(8,'John');"  height="80" width="80"/></div></td>
+<td><div id="Keith"><img src="img/Keith.jpg" onclick="selection(9,'Keith');"  height="80" width="80"/></div></td>
 </tr>
 <tr>
-<td><div id="Nichols"><img src="img/Nichols.jpg" onclick="selection(9,'Nichols');"  height="80" width="80"/></div></td>
-<td><div id="Pearce"><img src="img/Pearce.jpg" onclick="selection(10,'Pearce');"  height="80" width="80"/></div></td>
-<td><div id="Skippa"><img src="img/Skippa.jpg" onclick="selection(11,'Skippa');"  height="80" width="80"/></div></td>
+<td><div id="Nichols"><img src="img/Nichols.jpg" onclick="selection(10,'Nichols');"  height="80" width="80"/></div></td>
+<td><div id="Pearce"><img src="img/Pearce.jpg" onclick="selection(11,'Pearce');"  height="80" width="80"/></div></td>
+<td><div id="Skippa"><img src="img/Skippa.jpg" onclick="selection(12,'Skippa');"  height="80" width="80"/></div></td>
 </tr>
 <tr>
-<td><div id="Spoon"><img src="img/Spoon.jpg" onclick="selection(12,'Spoon');"  height="80" width="80"/></div></td>
-<td><div id="Truck"><img src="img/Truck.jpg" onclick="selection(13,'Truck');"  height="80" width="80"/></div></td>
+<td><div id="Spoon"><img src="img/Spoon.jpg" onclick="selection(13,'Spoon');"  height="80" width="80"/></div></td>
+<td><div id="Truck"><img src="img/Truck.jpg" onclick="selection(14,'Truck');"  height="80" width="80"/></div></td>
 <td></td>
 </tr>
 </table>
 <script>
 
-var players=[];
-var index=0;
+
+var playersps=[];
 idcards="";
 
 function selection(alpha,idcard) {
@@ -107,30 +107,14 @@ function selection(alpha,idcard) {
   teste=alpha;
   idcards=idcard;
 
-    var index=players.indexOf(teste);
-
-if (players.length==0) {
-players.push(alpha);
+playersps.length = 0;
+playersps.push(alpha);
 document.getElementById(idcards).setAttribute("class",'selected');
+sessionStorage.playersps = playersps;
+window.location="Playerstats.html";
 }
 
-else if (players.length==1) {
-
-     if (index>-1) {
-     players.splice(index,1);
-     document.getElementById(idcards).removeAttribute("class");
-     }
- else {
-players.push(alpha);
-document.getElementById(idcards).setAttribute("class",'selected');
-sessionStorage.players = players;
-window.location="SG-MP.html";
-};
-};
-
-}
-</script>
-
+</script> 
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.bulletin.js"></script>

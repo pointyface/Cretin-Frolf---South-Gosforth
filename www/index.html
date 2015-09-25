@@ -29,14 +29,14 @@ body {
 
 #footer {
     width:100%;
-    height:50px;
+    height:8%;
     position:absolute;
     bottom:0;
     left:0;
 }
 
 #footer {
-    background:#66FF99;;
+    background:#66FF99;
     border-top:1px solid #ff4b02;
     color:#333;
     text-shadow:1px 1px 0 rgba(255,255,255,0.6);
@@ -50,6 +50,12 @@ body {
 .btn {
     width: 50%;
     height: 25%;
+}
+
+.him {
+    margin-top: 30px;
+    height:35%;
+    margin-bottom:30px;
 }
 </style>
 
@@ -70,24 +76,27 @@ body {
 
       <!-- Main jumbotron for a primary marketing message or call to action -->
 <img src="img/CFLogo.png" style="width:100%">
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<div class="wrapper">
-<a class="btn btn-primary btn-lg" href="SG-MP-PS.html">Match play</a>
-</div>
-<br>
-<br>
-<br>
-<br>
-<div class="wrapper">
-<a class="btn btn-primary btn-lg" href="SG-SP-No.html">Stroke play</a>
-</div>
 
+<div class="col-xs-6">
+<div class="him">
+<img src="img/Matchplay.png" onclick="goto('SG-MP-PS.html');" style="width:100%;">
+</div>
+</div>
+<div class="col-xs-6">
+<div class="him">
+<img src="img/strokeplay.png" onclick="goto('SG-SP-PS.html');" style="width:100%">
+</div>
+</div>
+<div class="col-xs-6">
+<div class="him">
+<img src="img/Coursestats.png" onclick="goto('Coursestats.html');" style="width:100%">
+</div>
+</div>
+<div class="col-xs-6">
+<div class="him">
+<img src="img/Playerstats.png" onclick="goto('SG-PS-PS.html');" style="width:100%">
+</div>
+</div>
  <div id="footer">
   <a href="Ince.html">OPTA</a>
 <br>
@@ -95,9 +104,14 @@ body {
 </div> 
     </div> <!-- /container -->
 
+<script>
+var htmls="";
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
+function goto (html) {
+    var htmls=html
+    window.location=htmls;
+};
+</script>
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.bulletin.js"></script>

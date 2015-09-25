@@ -29,21 +29,16 @@ body {
     background-color: #66FF99;
 }
 
-table {
-border: 1px solid #66FF99;
-}
 
 td {
-  width: 150px;
     background-color:#66FF99;
-    border: 1px solid #66FF99;
+    border: 10px solid #66FF99;
     text-align:center;
 }
 
 th {
-  width: 150px;
     background-color:#66FF99;
-    border: 1px solid #66FF99;
+    border: 10px solid #66FF99;
     text-align: center;
 }
 
@@ -54,8 +49,8 @@ margin-left:5%;
 margin-right:5%;
 }
 
-.form-control  {
-    width: 150px;
+.input-group  {
+    width: 120px;
     text-align: center;
     background-color:#66FF99;
 }
@@ -74,6 +69,10 @@ margin-right:5%;
     font-size: 40px;
 }
 
+.hrd {
+  position:fixed;
+}
+
 </style>
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
@@ -89,8 +88,6 @@ margin-right:5%;
   <body>
 <img src="img/CFlogoSP.png" style="width:100%">
 
-<br>
-<br>
  
 <script src="http://wbpl.sdrew.net/Frolf/Data/data.js"></script>
 <script>
@@ -115,7 +112,9 @@ var val = sessionStorage.playersp;
 
 var split = val.split(',');
 
-var noplay = split[0];
+numberplay=split.length - 1;
+
+var noplay = split[numberplay];
 
 
 function p1totscorechange(p1totscore) {
@@ -169,7 +168,7 @@ document.getElementById('name5').innerHTML = Plyr5;
 function player6() {
 
 player6value=split[6];
-Plyr6handicap[player6value][0];
+Plyr6=handicap[player6value][0];
 document.getElementById('name6').innerHTML = Plyr6;
 
 };
@@ -263,7 +262,7 @@ while (i<=noplay)  {
      
      l=1;
 
-   document.write('<tr><td>Hole '+j+'</td>');
+   document.write('<tr><td>'+j+'</td>');
 
 
 
@@ -691,8 +690,6 @@ else if (noplay==16) {
     <td>Winner</td>
         <td id="p1totscore" class="p1totscore" text-align="center"><b>0</b></td>
         <td id="photo1"><img src="img/Unknown.jpg" height="80" width="80"></td>
-  </tr>
-    <tr>
     <td>Winner (adjusted)</td>
         <td id="p2totscore" class="p2totscore" text-align="center"><b>0</b></td>
         <td id="photo2"><img src="img/Unknown.jpg" height="80" width="80"></td>
