@@ -195,8 +195,8 @@ $("#chart").empty();
 
         var data = holes.map(function(d) {
       return {
-         hole: d[0],
-         average: d[1]
+         hole: d[1],
+         average: d[0]
       };
 
 });
@@ -237,7 +237,7 @@ topTen = data.sort(function(a, b) { return a.average - b.average; }).slice(0, 9)
                     .attr("y", y.rangeBand() + 10)
                     .attr("dy", ".35em")
                     .attr("text-anchor", "start")
-                    .text(function(d) { return d.average; });
+                    .text(function(d) { return d.average.toFixed(2); });
                 });
 
      svg.selectAll(".circleGroup")
@@ -268,63 +268,6 @@ topTen = data.sort(function(a, b) { return a.average - b.average; }).slice(0, 9)
 };
 
 drawCircles();
-
-$('.player1').click(function() {
-players(Beast,"Beast");
-drawCircles();
-});
-$('.player2').click(function() {
-players(Swoosh,"Davies");
-drawCircles();
-});
-$('.player3').click(function() {
-players(Gibbo,"d.I.G.");
-drawCircles();
-});
-$('.player4').click(function() {
-players(Fin,"Fin");
-drawCircles();
-});
-$('.player5').click(function() {
-players(Fish,"Fish");
-drawCircles();
-});
-$('.player6').click(function() {
-players(Ceefax,"Gary");
-drawCircles();
-});
-$('.player7').click(function() {
-players(Hodge,"Hodge");
-drawCircles();
-});
-$('.player8').click(function() {
-players(John,"John");
-drawCircles();
-});
-$('.player9').click(function() {
-players(Keith,"Keith");
-drawCircles();
-});
-$('.player10').click(function() {
-players(Nichols,"Nichols");
-drawCircles();
-});
-$('.player11').click(function() {
-players(Pearce,"Pearce");
-drawCircles();
-});
-$('.player12').click(function() {
-players(Skippa,"Skippa");
-drawCircles();
-});
-$('.player13').click(function() {
-players(Spoon,"Spoon");
-drawCircles();
-});
-$('.player14').click(function() {
-players(Truck,"Truck");
-drawCircles();
-});
 
 </script>
 

@@ -164,7 +164,7 @@ var split = val.split(',');
 if (split[0]==1)
  {players(Beast,"Beast",0);}
 else if (split[0]==2)
-  {players(Davies,"Davies",1);}
+  {players(Swoosh,"Davies",1);}
 else if (split[0]==3)
   {players(Gibbo,"d.I.G.",2);}
 else if (split[0]==4)
@@ -187,7 +187,7 @@ else if (split[0]==12)
   {players(Skippa,"Skippa",11);}
 else if (split[0]==13)
   {players(Spoon,"Spoon",12);}
-else if (split[0]==13)
+else if (split[0]==14)
   {players(Truck,"Truck",13);}
 
 function SGnameplchange(nam) {
@@ -247,8 +247,8 @@ for(var i = 0, len = plholes.length; i < len; i++) {
     plave += plholes[i][0];  
 }
 
-var easyplhole="Hole "+easyplh[1]+" ("+easyplh[0]+")";
-var hardplhole="Hole "+hardplh[1]+" ("+hardplh[0]+")";
+var easyplhole="Hole "+easyplh[1]+" ("+easyplh[0].toFixed(2)+")";
+var hardplhole="Hole "+hardplh[1]+" ("+hardplh[0].toFixed(2)+")";
 
 progress=[];
 
@@ -256,12 +256,14 @@ for(var k = 0, len = playerdata.length; k < len; k++) {
     progress.push(playerdata[k][12]);  
 }
 
+plaverg=plave.toFixed(2);
+
 plhand=handicap[arr][1];
 
 namer="Statistics for " + playername;
 
 SGnameplchange(namer);
-SGaveplchangesm(plave);
+SGaveplchangesm(plaverg);
 SGhandplchangesm(plhand);
 SGeasyplchangesm(easyplhole);
 SGhardplchangesm(hardplhole);
