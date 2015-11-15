@@ -389,24 +389,8 @@ margin-right:5%;
 
 <script src="http://wbpl.sdrew.net/Frolf/Data/data.js"></script>
 <script>
-var handicap=[
-["Beast",10],
-["Davies",6],
-["d.I.G.",9],
-["Fin",1],
-["Fish",3],
-["Gary",7],
-["Hodge",0],
-["John",2],
-["Keith",5],
-["Nichols",10],
-["Pearce",2],
-["Skippa",6],
-["Spoon",1],
-["Truck",4]
-];
 
-var val = sessionStorage.players;
+var val = localStorage.players;
 
 if (val.length==3){
 player1value=val[0];
@@ -427,6 +411,31 @@ player1value=val[0]+val[1];
 player2value=val[3]+val[4];
 
 }
+
+function handicp(alpha,beta) {
+
+hp1=handicap[alpha][1]; 
+hp2=handicap[beta][1];
+
+hdcp=hp1-hp2;
+
+if (hdcp==0){
+  p1hdcp=0;
+  p2hdcp=0;
+}
+else if (hdcp<0){
+  p1hdcp=0;
+  p2hdcp=Math.round(-0.75*hdcp);
+}
+else if (hdcp>0){
+  p2hdcp=0;
+  p1hdcp=Math.round(0.75*hdcp);
+}
+
+handicpl1(p1hdcp);
+handicpl2(p2hdcp);
+};
+
 function handicpl1(alpha) {
 
     holes.sort(function (a, b) {
@@ -439,7 +448,7 @@ plh1=[];
 
 plh1=holes.slice();
 
-h=handicap[alpha][1];
+h=alpha;
 
 if (h<=9) {
 i=h;
@@ -485,7 +494,7 @@ plh2=[];
 
 plh2=holes.slice();
 
-h=handicap[alpha][1];
+h=alpha;
 
 if (h<=9) {
 i=h;
@@ -523,14 +532,13 @@ holes.sort(function (a, b) {
 function Pl1name(Player1) {
 Plyr1=handicap[player1value][0];
 document.getElementById('name1').innerHTML = Plyr1;
-handicpl1(player1value);
 imgp1html='<img src="img/'+Plyr1+'.jpg" height="80" width="80">';
 photo1change(imgp1html);
 };
 function Pl2name(Player2) {
 Plyr2=handicap[player2value][0];
 document.getElementById('name2').innerHTML = Plyr2;
-handicpl2(player2value);
+handicp(player1value,player2value);
 imgp2html='<img src="img/'+Plyr2+'.jpg" height="80" width="80">';
 photo2change(imgp2html);
 };
